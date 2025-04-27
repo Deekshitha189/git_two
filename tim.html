@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<div id="main">
+		<h1 id="source">some content</h1>
+		<p id="dupe">other random content</p>
+	</div>
+	<button onclick="removeElement()">click here</button>
+
+	<!....insert HTML replacing the exisiting one.....>
+		<div id="qoutes">
+			<h1 id="first">paragraph in body tags the OG</h1>
+		</div>
+		<button onclick="clickme()"> insert content </button>
+<!....replace html content............>
+	<div id="rplc">
+		<h1 id="1stelem">Heading of body</h1>
+		<p id="2ndelem">para of body</p>
+	</div>
+	<button onclick="replace()">replacing elem</button>
+
+
+
+	<script>
+	function removeElement(){
+		var a = document.getElementById("main");
+		var b = document.getElementById("dupe");
+		a.removeChild(b);
+	}
+
+	//insert HTML replacing the exisiting one
+
+	function clickme(){
+		var matches=document.getElementById('qoutes');
+		matches.insertAdjacentHTML('beforebegin','<p>this is the 1st paragraph in scripttag</p>');
+		matches.style.color="red";
+		matches.insertAdjacentHTML('afterbegin','<p>this is the second paragraph in scripttag</p>');
+		matches.insertAdjacentHTML('beforeend','<p>this is the third paragraph in scripttag</p>');
+		matches.insertAdjacentHTML('afterend','<p>this is the fourth paragraph in scripttag</p>');
+	}
+
+
+	//replace content
+
+
+	function replace(){
+		var x=document.getElementById("rplc");
+		var y=document.getElementById("2ndelem");
+
+		var newx=document.createElement("p");
+		var newy=document.createTextNode("this is modified para");
+		newx.appendChild(newy);
+		x.replaceChild(newx,newy);
+	}
+
+
+
+
+
+	</script>
+</body>
+</html>
